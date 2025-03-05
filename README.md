@@ -6,6 +6,9 @@ Team: us
 Work topic: Image clustering using WikiArt dataset
 
 
+DEADLINE FOR THESE: Next Tuesday (March 11th)
+
+
 Attila:
     - Understanding the data from the selected dataset 
     - Extracting initial information from the chosen dataset
