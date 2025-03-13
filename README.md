@@ -20,7 +20,8 @@ Hunor:
 Khalid:
     - Identifying available datasets for the chosen topic
     -1 https://www.kaggle.com/competitions/painter-by-numbers/data tooooo big
-    -2 https://www.kaggle.com/datasets/trungit/wikiart25k/data?select=Realism i think its just a subset from the first on u guys found 
-    -3 any other data set its either too small or have alot on nulls or unknown classes/artests or its a subset from the original 
+    -2 https://huggingface.co/datasets/MissTiny/WikiArt
+    -3 https://www.kaggle.com/datasets/trungit/wikiart25k/data?select=Realism i think its just a subset from the first on u guys found
+    -4 any other data set its either too small or have alot on nulls or unknown classes/artests or its a subset from the original 
 
 https://www.kaggle.com/datasets/steubk/wikiart
