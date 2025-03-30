@@ -169,3 +169,13 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# Testing
+_*
+
+# Data 
+data/wikiart_subset
+
+# Mac 
+.DS_Store 
