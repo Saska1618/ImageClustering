@@ -172,7 +172,7 @@ cython_debug/
 
 
 # Testing
-_*
+___*
 
 # Data 
 data/wikiart_subset
