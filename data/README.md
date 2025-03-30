@@ -9,4 +9,4 @@
 
 ## Download the data
 
-Click on the links above, log in into yout Kaggle account and download the Folders from the dataset into ```data/```.
+Click on the links above, log in into yout Kaggle account and download the Folders from the dataset into ```data/wikiart_subset```.
