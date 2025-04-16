@@ -1,6 +1,8 @@
 import numpy as np
-from sklearn.metrics import silhouette_score, davies_bouldin_score, calinski_harabasz_score, accuracy_score
-    
+
+from sklearn.metrics import silhouette_score, davies_bouldin_score, calinski_harabasz_score
+
+
 def main():
     """
     Main function to run the metrics.
@@ -18,8 +20,12 @@ def main():
     samenum_labels_dbscan = np.load("../output/dbscan_samenum_labels.npy")
     samenum_labels_spectral = np.load("../output/spectral_samenum_labels.npy")
     
-    real_labels = np.load("../data/r18_features/labels.npy")
-    
+    # Calculate silhouette scores SAMENUM
+    samenum_silhouette_agglomerative = silhouette_score(samenum_features, samenum_labels_agglomerative)
+    samenum_silhouette_kmeans = silhouette_score(samenum_features, samenum_labels_kmeans)
+    samenum_silhouette_dbscan = silhouette_score(samenum_features, samenum_labels_dbscan)
+    samenum_silhouette_spectral = silhouette_score(samenum_features, samenum_labels_spectral)
+
     # Calculate silhouette scores
     silhouette_agglomerative = silhouette_score(features, labels_agglomerative)
     silhouette_kmeans = silhouette_score(features, labels_kmeans)
@@ -55,6 +61,13 @@ def main():
     print(f"Agglomerative Clustering: Silhouette: {silhouette_agglomerative}, Davies-Bouldin: {db_agglomerative}, Calinski-Harabasz: {ch_agglomerative}")
     print(f"KMeans Clustering: Silhouette: {silhouette_kmeans}, Davies-Bouldin: {db_kmeans}, Calinski-Harabasz: {ch_kmeans}")
     print(f"DBSCAN Clustering: Silhouette: {silhouette_dbscan}, Davies-Bouldin: {db_dbscan}, Calinski-Harabasz: {ch_dbscan}")
+    print(f"Spectral KNN Clustering: Silhouette: {silhouette_spectral}, Davies-Bouldin: {db_spectral}, Calinski-Harabasz: {ch_spectral}")
+   
+    print("\n\nSummary of clustering metrics SAMENUM:")
+    print(f"Agglomerative Clustering: Silhouette: {samenum_silhouette_agglomerative}, Davies-Bouldin: {samenum_db_agglomerative}, Calinski-Harabasz: {samenum_ch_agglomerative}")
+    print(f"KMeans Clustering: Silhouette: {samenum_silhouette_kmeans}, Davies-Bouldin: {samenum_db_kmeans}, Calinski-Harabasz: {samenum_ch_kmeans}")
+    print(f"DBSCAN Clustering: Silhouette: {samenum_silhouette_dbscan}, Davies-Bouldin: {samenum_db_dbscan}, Calinski-Harabasz: {samenum_ch_dbscan}")
+    print(f"Spectral KNN Clustering: Silhouette: {samenum_silhouette_spectral}, Davies-Bouldin: {samenum_db_spectral}, Calinski-Harabasz: {samenum_ch_spectral}")
 
 if __name__ == "__main__":
     main()

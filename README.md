@@ -5,8 +5,9 @@ University project - working with WikiArt dataset from kaggle
 
 ## Prelimminary results (Hunor)
 
-| Clustering Method       | Silhouette            | Davies-Bouldin       | Calinski-Harabasz     |
-|-------------------------|-----------------------|----------------------|-----------------------|
-| Agglomerative | 0.023  | 4.823    | 415.918     |
-| KMeans       | 0.040   | 4.020    | 540.062     |
-| DBSCAN       | 0.098   | 7.280    | 55.229     |
+| Clustering Algorithm     | Silhouette Score | Davies-Bouldin Index | Calinski-Harabasz Index |
+|--------------------------|------------------|------------------------|---------------------------|
+| Agglomerative Clustering | 0.02             | 4.82                   | 415.92                    |
+| KMeans Clustering        | 0.04             | 4.02                   | 540.06                    |
+| DBSCAN Clustering        | 0.10             | 7.28                   | 55.23                     |
+| Spectral KNN Clustering  | 0.04             | 4.08                   | 503.81                    |
