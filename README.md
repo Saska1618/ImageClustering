@@ -3,7 +3,7 @@
 
 University project - working with WikiArt dataset from kaggle
 
-## Prelimminary results (Hunor)
+## Prelimminary results
 
 | Clustering Algorithm     | Silhouette Score | Davies-Bouldin Index | Calinski-Harabasz Index |
 |--------------------------|------------------|------------------------|---------------------------|
