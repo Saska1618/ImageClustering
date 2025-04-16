@@ -1,7 +1,7 @@
 import argparse
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans, DBSCAN, AgglomerativeClustering
+from sklearn.cluster import KMeans, DBSCAN, AgglomerativeClustering, SpectralClustering
 from sklearn.manifold import TSNE
 from sklearn.decomposition import PCA
 from sklearn.metrics import silhouette_score
@@ -31,12 +31,12 @@ def main():
 
     # Validate arguments
     args = parser.parse_args()
-    if args.clustering not in ['kmeans', 'dbscan', 'agglomerative']:
-        raise ValueError("Invalid clustering algorithm. Choose from 'kmeans', 'dbscan', 'agglomerative'")
+    if args.clustering not in ['kmeans', 'dbscan', 'agglomerative', 'spectral']:
+        raise ValueError("Invalid clustering algorithm. Choose from 'kmeans', 'dbscan', 'agglomerative', 'spectral'")
 
     # Read npy feautures
-    features = np.load("../data/r18_features/features.npy")
-    real_labels = np.load("../data/r18_features/labels.npy")
+    features = np.load("../data/r18_features/features_samenum.npy")
+    real_labels = np.load("../data/r18_features/labels_samenum.npy")
     num_clusters = 4
 
     # Use TSNE to reduce the dimensionality of the features
@@ -53,6 +53,8 @@ def main():
     kmean_model = KMeans(n_clusters=num_clusters, random_state=42)
     dbscan_model = DBSCAN(eps=20, min_samples=3)
     agglomerative_model = AgglomerativeClustering(n_clusters=num_clusters)
+    spectral_model = SpectralClustering(n_clusters=num_clusters, affinity='nearest_neighbors', n_neighbors=89, random_state=42)
+
 
     # Fit the model
     if args.clustering == 'kmeans':
@@ -61,16 +63,18 @@ def main():
         labels = dbscan_model.fit_predict(features)
     elif args.clustering == 'agglomerative':
         labels = agglomerative_model.fit_predict(features)
+    elif args.clustering == 'spectral':
+        labels = spectral_model.fit_predict(features)
     else:
         raise ValueError("Invalid clustering algorithm. Choose from 'kmeans', 'dbscan', 'agglomerative'")
 
     # Plot clusters
-    plot_clusters(features_2d, labels, f"{args.clustering} Clustering")
+    plot_clusters(features_2d, labels, f"samenum {args.clustering} Clustering")
     # Plot real labels
     plot_clusters(features_2d, real_labels, "Real Labels")
     
     # Save the labels
-    np.save(f"../output/{args.clustering}_labels.npy", labels)
+    np.save(f"../output/{args.clustering}_samenum_labels.npy", labels)
     
     # Calculate the silhouette score
     silhouette_avg = silhouette_score(features, labels)
